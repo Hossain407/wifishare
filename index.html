@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiFi File Share Pro - High-Speed Local Sharing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        body {
+            background-color: #0b0f19;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Modern Hero Section (Split Layout) */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 24px;
+            border: 1px solid #1e293b;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        @media (max-width: 768px) {
+            .hero { flex-direction: column; text-align: center; padding: 40px 20px; }
+        }
+        .hero-text { flex: 1; }
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+        
+        /* App Screenshot Container */
+        .hero-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .hero-img img {
+            max-width: 280px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.2);
+            border: 4px solid #1e293b;
+            transition: transform 0.3s ease;
+        }
+        .hero-img img:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Styled Features Grid */
+        .card {
+            background: #111827;
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid #1f2937;
+            margin-bottom: 30px;
+        }
+        .card h2 {
+            color: #3b82f6;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 600px) {
+            .features-grid { grid-template-columns: 1fr; }
+        }
+        .feature-item {
+            background: #1f2937;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #374151;
+        }
+        .feature-item h3 {
+            font-size: 1.15rem;
+            color: #f3f4f6;
+            margin-bottom: 8px;
+        }
+        .feature-item p {
+            color: #9ca3af;
+            font-size: 0.95rem;
+        }
+
+        /* Premium Download Button */
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #10b981;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 16px 36px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-download:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(16, 185, 129, 0.4);
+        }
+        
+        /* Unified Donation Module */
+        .donation-sec {
+            background: linear-gradient(180deg, #111827 0%, #1e1b4b 100%);
+            border: 1px solid #4338ca;
+        }
+        .donation-sec h2 { color: #fbbf24; }
+        .donation-p { color: #9ca3af; margin-bottom: 25px; }
+        
+        .donation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 650px) {
+            .donation-grid { grid-template-columns: 1fr; }
+        }
+        .donation-box {
+            background: #0b0f19;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #1f2937;
+        }
+        .donation-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #f3f4f6;
+            border-bottom: 1px solid #1f2937;
+            padding-bottom: 6px;
+        }
+        .btn-bmc {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffdd00;
+            color: #000000;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: opacity 0.2s;
+            box-shadow: 0 4px 12px rgba(255, 221, 0, 0.15);
+        }
+        .btn-bmc:hover { opacity: 0.9; }
+        
+        .local-method {
+            background: #111827;
+            padding: 10px 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #1f2937;
+        }
+        .local-title { font-weight: 600; font-size: 0.9rem; }
+        .local-title.bkash { color: #e2136e; }
+        .local-title.nagad { color: #f6931d; }
+        .number-box {
+            display: flex;
+            align-items: center;
+            background: #0b0f19;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .btn-copy {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            margin-left: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        .btn-copy:hover { background: #2563eb; }
+        
+        footer { text-align: center; padding: 40px 20px; color: #4b5563; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Hero Section with Live App Preview -->
+        <section class="hero">
+            <div class="hero-text">
+                <h1>WiFi File Share</h1>
+                <p>Share files effortlessly over your local network. Lightning-fast speeds with zero configuration, active mobile data, or cables required.</p>
+                <a href="wifishare.apk" class="btn-download" download>📥 Download Free APK</a>
+            </div>
+            <div class="hero-img">
+                <!-- আপনার দেওয়া স্ক্রিনশটের ইমেজ সোর্স লিঙ্ক -->
+                <img src="pic.png" alt="WiFi File Share App Interface">
+            </div>
+        </section>
+
+        <!-- Functional Overview -->
+        <div class="card">
+            <h2>App Performance Matrix</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>⚡ High-Speed Transfer</h3>
+                    <p>Uses the maximum bandwidth of your local WiFi routing standard for rapid data transfers.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🛡️ Secure Connections</h3>
+                    <p>All transits are fully sandboxed and hosted locally. Data never leaves your network perimeter.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>📱 QR Code Scanning</h3>
+                    <p>Generate native QR streams directly inside the application layer for fast connection handshakes.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>💎 Lightweight Footprint</h3>
+                    <p>Clean Java network background server threads ensuring minimal CPU or RAM resource usage.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Donation Module -->
+        <div class="card donation-sec">
+            <h2>☕ Support the Developer</h2>
+            <p class="donation-p">This distribution utility is entirely free and open-source. If it improves your network workflow, consider reinforcing updates with a micro-donation tier below.</p>
+            
+            <div class="donation-grid">
+                <!-- International -->
+                <div class="donation-box">
+                    <h3>Global Channel</h3>
+                    <a href="https://buymeacoffee.com" target="_blank" class="btn-bmc">
+                        ☕ Buy Me a Coffee
+                    </a>
+                </div>
+
+                <!-- Local Elements -->
+                <div class="donation-box">
+                    <h3>Local Channels (Bangladesh)</h3>
+                    
+                    <div class="local-method">
+                        <span class="local-title bkash">bKash Personal</span>
+                        <div class="number-box">
+                            <span id="bkashNum">01738615407</span>
+                            <button class="btn-copy" onclick="copyNumber('bkashNum')">Copy</button>
+                        </div>
+                    </div>
+
+                    <div class="local-method">
+                        <span class="local-title nagad">Nagad Personal</span>
+                        <div class="number-box">
+                            <span id="nagadNum">01738615407</span>
+                            <button class="btn-copy" onclick="copyNumber('nagadNum')">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 WiFi Server App Studio. Open-source deployment hosted via GitHub Pages.</p>
