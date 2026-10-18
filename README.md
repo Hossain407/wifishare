@@ -18,7 +18,7 @@ Welcome to the official distribution repository for **WiFi File Share Pro**. Thi
 
 ## 📥 Installation Guide
 
-1. Download the latest release distribution bundle directly: [wifi-file-transfer.apk](./wifi-file-transfer.apk).
+1. Download the latest release distribution bundle directly: [wifishare.apk](./wifi-file-transfer.apk).
 2. Enable "Install from Unknown Sources" in your Android security settings if prompted.
 3. Install the APK and launch the application.
 
