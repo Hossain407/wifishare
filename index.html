@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,14 +15,16 @@
             background-color: #0b0f19;
             color: #f8fafc;
             line-height: 1.6;
+            overflow-x: hidden;
         }
         .container {
+            width: 100%;
             max-width: 1000px;
             margin: 0 auto;
             padding: 40px 20px;
         }
         
-        /* Modern Hero Section (Split Layout) */
+        /* Modern Hero Section */
         .hero {
             display: flex;
             align-items: center;
@@ -36,18 +38,23 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
         @media (max-width: 768px) {
-            .hero { flex-direction: column; text-align: center; padding: 40px 20px; }
+            .hero { 
+                flex-direction: column-reverse; 
+                text-align: center; 
+                padding: 30px 20px;
+                gap: 30px;
+            }
         }
         .hero-text { flex: 1; }
         .hero-text h1 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 15px;
             line-height: 1.2;
         }
         .hero-text p {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             color: #94a3b8;
             margin-bottom: 30px;
         }
@@ -57,9 +64,12 @@
             flex: 1;
             display: flex;
             justify-content: center;
+            width: 100%;
         }
         .hero-img img {
-            max-width: 280px;
+            width: 100%;
+            max-width: 260px;
+            height: auto;
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(59, 130, 246, 0.2);
             border: 4px solid #1e293b;
@@ -69,13 +79,16 @@
             transform: scale(1.03);
         }
         
-        /* Styled Features Grid */
+        /* Features Grid */
         .card {
             background: #111827;
             padding: 35px;
             border-radius: 20px;
             border: 1px solid #1f2937;
             margin-bottom: 30px;
+        }
+        @media (max-width: 768px) {
+            .card { padding: 20px; }
         }
         .card h2 {
             color: #3b82f6;
@@ -84,7 +97,7 @@
         }
         .features-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
         @media (max-width: 600px) {
@@ -106,20 +119,25 @@
             font-size: 0.95rem;
         }
 
-        /* Premium Download Button */
+        /* Download Button */
         .btn-download {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 12px;
             background: #10b981;
             color: white;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 700;
             text-decoration: none;
             padding: 16px 36px;
             border-radius: 50px;
             box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
             transition: all 0.3s ease;
+            width: auto;
+        }
+        @media (max-width: 480px) {
+            .btn-download { width: 100%; }
         }
         .btn-download:hover {
             background: #059669;
@@ -127,7 +145,7 @@
             box-shadow: 0 6px 25px rgba(16, 185, 129, 0.4);
         }
         
-        /* Unified Donation Module */
+        /* Donation Module */
         .donation-sec {
             background: linear-gradient(180deg, #111827 0%, #1e1b4b 100%);
             border: 1px solid #4338ca;
@@ -137,10 +155,10 @@
         
         .donation-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
-        @media (max-width: 650px) {
+        @media (max-width: 768px) {
             .donation-grid { grid-template-columns: 1fr; }
         }
         .donation-box {
@@ -162,7 +180,7 @@
             justify-content: center;
             background: #ffdd00;
             color: #000000;
-            padding: 12px;
+            padding: 14px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 700;
@@ -173,12 +191,14 @@
         
         .local-method {
             background: #111827;
-            padding: 10px 12px;
+            padding: 12px;
             border-radius: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
             border: 1px solid #1f2937;
         }
         .local-title { font-weight: 600; font-size: 0.9rem; }
@@ -188,15 +208,16 @@
             display: flex;
             align-items: center;
             background: #0b0f19;
-            padding: 5px 10px;
+            padding: 6px 10px;
             border-radius: 4px;
             font-family: monospace;
+            font-size: 0.9rem;
         }
         .btn-copy {
             background: #3b82f6;
             color: white;
             border: none;
-            padding: 4px 8px;
+            padding: 6px 10px;
             margin-left: 8px;
             border-radius: 4px;
             cursor: pointer;
@@ -205,14 +226,14 @@
         }
         .btn-copy:hover { background: #2563eb; }
         
-        footer { text-align: center; padding: 40px 20px; color: #4b5563; font-size: 0.9rem; }
+        footer { text-align: center; padding: 20px; color: #4b5563; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <div class="container">
         
-        <!-- Hero Section with Live App Preview -->
+        <!-- Hero Section -->
         <section class="hero">
             <div class="hero-text">
                 <h1>WiFi File Share</h1>
@@ -220,7 +241,6 @@
                 <a href="wifishare.apk" class="btn-download" download>📥 Download Free APK</a>
             </div>
             <div class="hero-img">
-                <!-- আপনার দেওয়া স্ক্রিনশটের ইমেজ সোর্স লিঙ্ক -->
                 <img src="pic.png" alt="WiFi File Share App Interface">
             </div>
         </section>
@@ -248,7 +268,7 @@
             </div>
         </div>
 
-        <!-- Dynamic Donation Module -->
+        <!-- Donation Module -->
         <div class="card donation-sec">
             <h2>☕ Support the Developer</h2>
             <p class="donation-p">This distribution utility is entirely free and open-source. If it improves your network workflow, consider reinforcing updates with a micro-donation tier below.</p>
@@ -288,3 +308,19 @@
         <!-- Footer -->
         <footer>
             <p>&copy; 2026 WiFi Server App Studio. Open-source deployment hosted via GitHub Pages.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function copyNumber(elementId) {
+            const numText = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(numText).then(() => {
+                alert("Copied: " + numText);
+            }).catch(err => {
+                console.error("Failed to copy", err);
+            });
+        }
+    </script>
+</body>
+</html>
